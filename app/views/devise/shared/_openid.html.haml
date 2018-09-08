@@ -1,0 +1,7 @@
+.btn-group.btn-group-lg
+  - omniauth_configured.each do |provider|
+    = link_to "/user/auth/#{provider}",
+                                      class: "btn btn-success btn-lg",
+                                      id: "omniauth-#{provider}",
+                                      title: "your #{provider} account" do
+      %i{:class => "fa fa-#{provider}"}

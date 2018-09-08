@@ -1,0 +1,48 @@
+.row
+  .col-md-12
+    .page-header
+      %h1 Users (#{@users.length})
+  .col-md-12.table-responsive
+    %table.table.table-bordered.table-striped.table-hover.datatable#table-users
+      %thead
+        %tr
+          %th ID
+          %th Name
+          %th Email
+          %th Created At
+          %th Last Login
+          %th.nowrap Actions
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= link_to user.id, admin_user_path(user), class: 'btn btn-default'
+            %td
+              = user.name
+              %br
+              - if user.confirmed?
+                %label.btn-xs.btn-success.disabled
+                  Confirmed
+              - else
+                %label.btn-xs.btn-danger.disabled
+                  NOT Confirmed
+              %br
+            %td= user.email
+            %td= user.created_at.in_time_zone('Athens')
+            %td= user.last_sign_in_at.in_time_zone('Athens') if user.last_sign_in_at
+            %td
+              .btn-group.flex
+                = link_to admin_user_path(user), class: 'btn btn-success' do
+                  .fas.fa-user
+                = link_to edit_admin_user_path(user), class: 'btn btn-primary' do
+                  .fas.fa-edit
+                = link_to admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
+                  .fas.fa-times
+
+:javascript
+  $(document).ready(function() {
+    $('#table-users').DataTable( {
+      autoWidth: false,
+      bInfo: false,
+      bPaginate: false
+    });
+  });

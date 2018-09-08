@@ -1,0 +1,28 @@
+- if current_user
+  %li.dropdown
+    %a.dropdown-toggle{ style: 'font-weight: bold', "data-toggle" => "dropdown", :href => "#", id: "current-user-detail"  }
+      #{current_user.email}
+      %span.caret
+    %ul.dropdown-menu
+      %li
+        = link_to edit_user_registration_path do
+          .fas.fa-user
+          My Account
+      %li
+        = link_to destroy_user_session_path, method: :delete do
+          %span.fas.fa-user-times
+          Log out
+      - if current_user.is_admin
+        %li.divider
+          %li= link_to 'Admin Area', admin_users_path
+
+- else
+  %li
+    = link_to new_registration_path('user'), class: " #{ 'highlight' if params[:controller] == 'registrations' }" do
+      .fas.fa-user-plus
+      Sign Up
+
+  %li
+    = link_to new_user_session_path, class: " #{ 'highlight' if params[:controller] == 'sessions' }" do
+      %span.fas.fa-user
+      Log In

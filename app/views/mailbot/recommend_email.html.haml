@@ -1,0 +1,53 @@
+!!!
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+  %body
+    .row
+      .col-md-12
+        %h1 Demo Rails App by Stella Rouzi
+        .text-muted
+          Find it at https://github.com/differentreality/demo_rails_app
+
+        %h3
+          It includes everything you need to get started
+        Such as bootstrap, user authentication and authorization.
+        %br
+        %h3
+          Find a more detailed list of what's included in
+          = link_to 'Github Repo', 'https://github.com/differentreality/demo_rails_app/wiki'
+
+          %br
+        %h4
+          All
+          %b you
+          have to do is
+          %br
+          %br
+
+          fork the Demo Rails App repository
+          %br
+          .text-muted
+            .fas.fa-star
+            git clone https://github.com/differentreality/demo_rails_app
+          %br
+          %br
+          and start the rails server!
+          %br
+          .text-muted
+            .fas.fa-star
+            bundle exec rails s
+        %p
+          %br
+          %i Don't forget you will need Ruby 2.5 installed
+
+
+    .row
+      .col-md-6
+        %h2 We'd love to hear from you!
+        %hr
+        = render partial: 'shared/contact_means'
+
+    .row
+      .col-md-12.text-center
+        = render partial: 'shared/email_footer'

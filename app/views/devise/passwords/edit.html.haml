@@ -1,0 +1,21 @@
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          CHANGE PASSWORD
+      .panel-body
+
+        = semantic_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+          = devise_error_messages!
+          = f.hidden_field :reset_password_token
+
+          = f.input :password, label: 'New password', input_html: { required: 'required', id: 'password_inline', autofocus: true, autocomplete: 'off' }
+          = f.input :password_confirmation, label: 'Confirm new password', required: true, input_html: { required: 'required' }
+
+          = f.submit 'Change password', class: 'btn btn-success'
+
+        .row
+          .col-md-12
+            .text-right
+              = render 'devise/shared/links'

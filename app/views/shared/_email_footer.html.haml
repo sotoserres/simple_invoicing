@@ -1,0 +1,9 @@
+%h4
+  %hr
+  This email was sent automatically from
+  = link_to "Stella's Demo Rails App", root_url
+  %br
+  If you are having any technical issues viewing this email, please contact us at
+  = mail_to ENV['support_email']
+  or fill out our
+  = link_to 'contact form', contact_url

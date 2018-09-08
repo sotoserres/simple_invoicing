@@ -1,0 +1,10 @@
+= semantic_form_for Contact.new, url: contact_path do |f|
+  - unless current_user
+    = f.input :email, label: 'Your e-mail', input_html: { required: 'required', class: 'wow fadeInUp' }
+  = f.input :subject, include_blank: false, input_html: { class: 'wow fadeInUp' }
+  %label{ class: 'control-label', for: 'contact_body'}
+    Text *
+  %textarea.form-control{ rows: 5, maxlength: 500, required: 'required', name: 'contact[body]', class: 'wow fadeInUp' }
+
+  %br
+  = f.submit 'Send', class: 'btn btn-default wow fadeInUp'

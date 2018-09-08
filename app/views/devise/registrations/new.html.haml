@@ -1,0 +1,26 @@
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          SIGN UP
+      .panel-body
+        = semantic_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render partial: 'devise/shared/sign_up_fields', locals: { u: f}
+          %p.text-right
+            = f.submit 'Sign Up', class: 'btn btn-success'
+        - unless omniauth_configured.empty?
+          .row
+            .col-md-4
+              %hr
+            .col-md-4
+              %h4.text-center
+                or use:
+            .col-md-4
+              %hr
+          .row
+            .col-md-12
+              #openidlinks
+                = render 'devise/shared/openid'
+              .text-right
+                = render 'devise/shared/links'

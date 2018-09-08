@@ -1,0 +1,46 @@
+= semantic_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  .row
+    .col-md-12.page-header
+      %h1
+        Edit Account
+      = f.action :submit, as: :button, label: 'Save', button_html: {class: 'btn btn-primary pull-right' }
+      .text-muted
+        Unless you wish to change your password, leave the relevant fields blank
+  .row
+    .col-md-5
+      = f.inputs name: 'Personal Data' do
+        = f.input :first_name, label: 'First Name', input_html: { required: 'required' }
+        = f.input :last_name, label: 'Last Name', input_html: { required: 'required' }
+
+    .col-md-5.col-md-offset-2
+      = f.inputs name: 'Contact Info' do
+        = f.input :email, input_html: { required: 'required', autocomplete: 'off' }
+
+  %hr
+  .row
+    .col-md-5
+      = f.inputs name: 'Change Password' do
+        = f.input :current_password, label: 'Current password', input_html: { value: @current_password }
+        = f.input :password, required: false, label: 'New password', input_html: { autocomplete: 'off', id: 'password_inline' }
+        = f.input :password_confirmation, label: 'Confirm new password', input_html: { autocomplete: 'off' }
+    .col-md-5.col-md-offset-2
+      = f.inputs name: 'OpenID' do
+        %h4
+          To add a new openID, connect via:
+        - if User.omniauth_providers.present?
+          #openidlinks
+            = render 'devise/shared/openid'
+        %br
+        - if @openids.any?
+          %h4
+            Your account is connected with:
+          - @openids.each do |openid|
+
+            = link_to user_openid_path(openid, user_id: current_user), method: :delete, data: { confirm: "Are you sure you wish to delete openID #{openid.email};" } do
+              .fas.fa-times{ style: "color:red" }
+            = "#{openid.provider}: #{openid.email}"
+            %br
+            %br
+  .row
+    .col-md-12.text-center.well
+      We remind you that you have consented to the use of cookies of this website. Use of cookies is necessary in order for this website to work.

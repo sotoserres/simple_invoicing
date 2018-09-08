@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+  %body
+    .row
+      .col-md-12
+        %h1 Welcome to the Demo Rails App by Stella Rouzi!
+    .row
+      .col-md-6
+        %h3
+          Please click on the following link to confirm your e-mail and enable your account:
+          %br
+          = link_to 'Enable Account', confirmation_url(@resource, confirmation_token: @token)
+
+        %p
+          Your account will be automatically enabled and you will immediately have full access.
+
+    .row
+      .col-md-6
+        %h2 Need help?
+        %hr
+
+        = render partial: 'shared/contact_means'
+
+        = render partial: 'shared/email_footer'

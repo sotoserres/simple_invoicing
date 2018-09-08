@@ -1,0 +1,37 @@
+.col-md-12
+  .page-header
+    %h1
+      User #{@user.email}
+      .btn-group.flex.pull-right.hidden-print
+        = link_to edit_admin_user_path(@user), class: 'btn btn-primary' do
+          .fas.fa-edit
+        = link_to admin_user_path(@user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
+          .fas.fa-times
+
+  %table.table.table-borderd.table-striped.table-hover#table-users
+    %tbody
+      %tr
+        %th.col-md-2 ID
+        %td= @user.id
+      %tr
+        %th Confirmed
+        %td
+          - if @user.confirmed?
+            %label.btn-xs.btn-success.disabled
+              Confirmed
+          - else
+            %label.btn-xs.btn-danger.disabled
+              NOT Confirmed
+            = link_to 'Confirm now', confirm_admin_user_path(@user), method: :patch, data: { confirm: "Are you sure you want to manually confirm this account for user #{@user.email}?" }, class: 'btn btn-xs btn-warning'
+      %tr
+        %th Name
+        %td= @user.name
+      %tr
+        %th Created At
+        %td= @user.created_at.in_time_zone('Athens')
+      %tr
+        %th Last sign in
+        %td= @user.last_sign_in_at.in_time_zone('Athens') if @user.last_sign_in_at
+      %tr
+        %th Last sign in IP
+        %td= @user.last_sign_in_ip

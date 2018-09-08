@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+  %body
+    .row
+      .col-md-12
+        .page-header
+          %h1
+            You have received a new message through the contact form
+        %h3
+          User:
+          - if @customer
+            = link_to @customer.email, admin_users_url(@customer)
+            = "(ID: #{@customer.id})"
+          - else
+            = @reply_to_email
+
+        %hr
+        %h2
+          = simple_format(@email_body)
+
+        = render partial: 'shared/email_footer'

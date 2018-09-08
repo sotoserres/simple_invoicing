@@ -1,0 +1,19 @@
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          FORGOT PASSOWRD
+      .panel-body
+
+        = semantic_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = devise_error_messages!
+
+          = f.input :email, input_html: { autofocus: true }
+
+          = f.submit 'Send instructions to retrieve password', class: 'btn btn-success'
+
+        .row
+          .col-md-12
+            .text-right
+              = render 'devise/shared/links'

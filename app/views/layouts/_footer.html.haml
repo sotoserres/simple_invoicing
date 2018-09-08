@@ -1,0 +1,29 @@
+.navbar.navbar-bottom
+  %hr
+  .col-lg-6.col-md-6.col-sm-7.col-xs-12
+    %ul.nav.navbar-nav.fullwidth
+
+      .col-lg-8.col-md-6.col-sm-7.col-xs-12
+        %li.navbar-text
+          = link_to "© 2017-#{Date.today.year} Demo Rails App by Stella Rouzi", "#{current_page?(root_path) ? '#' : root_path}"
+
+      .col-lg-4.col-md-6.col-sm-5.col-xs-12
+        %li.navbar-text
+          = link_to contact_path, title: 'stella.rouzi@gmail.com' do
+            %i.fas.fa-envelope-o
+            Contact
+
+  .col-lg-4.col-md-3.col-sm-5.col-xs-12
+    %ul.nav.navbar-nav.navbar-right.fullwidth
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12
+        %li.navbar-text
+          = link_to recommend_path, title: 'Send an email with info about the Demo Rails App' do
+            Recommend us!
+            %i.fas.fa-thumbs-up.fa-2x{ style: 'color: #06868e' }
+
+  .col-lg-2.col-md-12.col-sm-12.col-xs-12
+    %ul.nav.navbar-nav.navbar-right.fullwidth
+      %li.navbar-text{ style: 'display: inline-flex !important' }
+        = link_to 'https://www.facebook.com/',  target: '_blank', title: 'Visit our Facebook page', style: 'padding: 8px' do
+          %i.fab.fa-facebook-square.fa-3x.text-primary
+        .fb-like{ 'data-href' => 'https://www.facebook.com/', 'data-layout' => 'button', 'data-action' => 'like', 'data-size' => 'large', 'data-show-faces' => 'true', 'data-share' => 'true', style: 'padding-top: 20px' }

@@ -1,0 +1,10 @@
+%h1
+  - if @user.new_record?
+    Create new user
+  - else
+    Edit User #{@user.email}
+
+= semantic_form_for @user, url: ( @user.new_record? ? admin_users_path : admin_user_path(@user) ) do |f|
+  = f.input :first_name, input_html: { autofocus: true }
+  = f.input :last_name
+  = f.submit 'Save', class: 'btn btn-primary'

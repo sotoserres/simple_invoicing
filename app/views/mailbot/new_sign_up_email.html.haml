@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+  %body
+    .row
+      .col-md-12
+        .page-header
+          %h1
+            New user signed up
+        %h3
+          ID:
+          = @new_user.id
+          %br
+          Email:
+          = @new_user.email
+
+          %br
+          = link_to 'Show user', admin_user_url(@new_user)
+
+        = render partial: 'shared/email_footer'
