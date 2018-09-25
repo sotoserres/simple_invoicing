@@ -4,10 +4,8 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
-config/application.rb
 config/config.yml
 config/secrets.yml
-config/database.yml
 config/piwik.yml
 /vendor/cache
 /vendor/cache-old
