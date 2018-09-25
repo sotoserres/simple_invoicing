@@ -69,6 +69,8 @@ gem 'rolify'
 gem 'validate_url'
 gem 'validates_email_format_of'
 
+gem 'rails_admin'
+
 group :production do
   # To receive emails on errors
   gem 'exception_notification'
