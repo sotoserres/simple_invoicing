@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Ποσό:
+  = @payment.amount
+%p
+  %b Ημερομηνία:
+  = @payment.date
+%p
+  %b Συναλλασόμενος:
+  = @payment.user_id
+%p
+  %b Περιγραφή:
+  = @payment.description
+
+= link_to 'Επεξεργασία', edit_payment_path(@payment)
+= link_to 'Διαγραφή', payments, method: :delete, data: { confirm: 'Είστε Σίγουρος?' }
+= link_to 'Πίσω', payments_path

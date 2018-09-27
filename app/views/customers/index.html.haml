@@ -1,0 +1,48 @@
+.page-header
+  %h1 Πελάτες - Προμηθευτές
+  .text-muted
+    Όλοι οι χρήστες
+    = link_to new_customer_path, class: 'btn btn-success col-md-offset-9' do
+      .fa.fa-plus
+      Προσθήκη Χρήστη
+%table.table.table-bordered
+  %thead
+    %tr
+      %th A/A
+      %th Κατηγορία
+      %th Επίθετο
+      %th Όνομα
+      %th Όνομα Πατρός
+      %th Σταθερό τηλέφωνο
+      %th Κινητό τηλέφωνο
+      %th Ημ/νία Γέννησης
+      %th Email
+      %th Διεύθυνση
+      %th Πόλη
+      %th Δραστηριότητα
+      %th{ colspan: '3' }
+
+  %tbody
+    - @customers.each do |customer|
+      %tr
+        %td= customer.id
+        %td
+          - if customer.cat=="customer"
+            ="Πελάτης"
+          - else
+            ="Προμηθευτής"
+        %td= link_to customer.surname, customer
+        %td= customer.name
+        %td= customer.fathername
+        %td= customer.telephone
+        %td= customer.cellphone
+        %td= customer.dob
+        %td= customer.email
+        %td= customer.address
+        %td= customer.city
+        %td= customer.activity
+        %td= button_to 'Πληροφορίες', customer, class: 'btn btn-primary'
+        %td= button_to 'Επεξεργασία', edit_customer_path(customer), class: 'btn btn-warning'
+        %td= button_to 'Διαγραφή', customer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+
+%br

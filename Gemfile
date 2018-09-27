@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5', '>= 5.2.1'
 gem 'pg'#, '~> 0.21'
-gem 'sqlite3'
+# gem 'sqlite3'
 gem 'mysql2'
 
 # Use haml as templating language

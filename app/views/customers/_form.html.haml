@@ -1,0 +1,16 @@
+= semantic_form_for @customer do |f|
+  = f.inputs do
+    = f.input :cat, label: 'Κατηγορία', input_html: { autofocus: true }
+    = f.input :surname, label: 'Επώνυμο'
+    = f.input :name, label: 'Όνομα'
+    = f.input :fathername, label: 'Πατρώνυμο'
+    = f.input :telephone, label: 'Τηλέφωνο'
+    = f.input :cellphone, label: 'Κινητό'
+    = f.input :dob, label: 'Ημερ. Γεν.'
+    = f.input :email, label: 'Email'
+    = f.input :city, label: 'Πόλη'
+    = f.input :address, label: 'Διεύθυση'
+    = f.input :activity, label: 'Δραστηριότητα'
+
+  = f.actions do
+    = f.action :submit, :as => :input

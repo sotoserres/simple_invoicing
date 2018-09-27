@@ -1,0 +1,38 @@
+%p#notice= notice
+= link_to edit_customer_path(@customer), class: 'btn btn-primary' do
+  .fa.fa-plus
+  Επεξεργασία
+
+= link_to customers_path, class: 'btn btn-primary' do
+  .fa.fa-plus
+  Πίσω
+%p
+  %b Επίθετο:
+  = @customer.surname
+%p
+  %b Όνομα:
+  = @customer.name
+%p
+  %b Πατρώνυμο:
+  = @customer.fathername
+%p
+  %b Τηλέφωνο:
+  = @customer.telephone
+%p
+  %b Κινητό:
+  = @customer.cellphone
+%p
+  %b Ημερ. Γεν.:
+  = @customer.dob
+%p
+  %b Email:
+  = @customer.email
+%p
+  %b Πόλη:
+  = @customer.city
+%p
+  %b Διέυθυνση:
+  = @customer.address
+%p
+  %b Δραστηριότητα:
+  = @customer.activity

@@ -1,0 +1,29 @@
+%h1 Listing machineries
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Dob
+      %th Condition
+      %th Warranty
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @machineries.each do |machinery|
+      %tr
+        %td= machinery.name
+        %td= machinery.dob
+        %td= machinery.condition
+        %td= machinery.warranty
+        %td= machinery.user
+        %td= link_to 'Show', machinery
+        %td= link_to 'Edit', edit_machinery_path(machinery)
+        %td= link_to 'Destroy', machinery, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Machinery', new_machinery_path

@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @machinery.name
+%p
+  %b Dob:
+  = @machinery.dob
+%p
+  %b Condition:
+  = @machinery.condition
+%p
+  %b Warranty:
+  = @machinery.warranty
+%p
+  %b User:
+  = @machinery.user
+
+= link_to 'Edit', edit_machinery_path(@machinery)
+\|
+= link_to 'Back', machineries_path

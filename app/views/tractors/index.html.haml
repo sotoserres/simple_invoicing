@@ -1,0 +1,30 @@
+%h1 Listing tractors
+
+%table
+  %thead
+    %tr
+      %th Ονομασία
+      %th Πινακίδες
+      %th Πρώτη Άδεια
+      %th Τελ. Service
+      %th Ώρες Φίλτρων
+      %th Ώρες Λαδιών
+      %th Ώρες Εργασίας
+
+  %tbody
+    - @tractors.each do |tractor|
+      %tr
+        %td= tractor.name
+        %td= tractor.plates
+        %td= tractor.dob
+        %td= tractor.lastservice
+        %td= tractor.filterhours
+        %td= tractor.oilhours
+        %td= tractor.twh
+        %td= link_to 'Στοιχεία', tractor
+        %td= link_to 'Επεξεργασία', edit_tractor_path(tractor)
+        %td= link_to 'Διαγραφή', tractor, method: :delete, data: { confirm: 'Είστε Σίγουρος?' }
+
+%br
+
+= link_to 'New Tractor', new_tractor_path

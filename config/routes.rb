@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :payments
+  resources :machineries
+  resources :tractors
+  resources :items
+  resources :customers
+  resources :invoices
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
                                     registrations: :registrations, sessions: :sessions, confirmations: 'confirmations'

@@ -1,0 +1,10 @@
+= semantic_form_for @machinery do |f|
+  = f.inputs do
+    = f.input :name
+    = f.input :dob
+    = f.input :condition
+    = f.input :warranty
+    = f.input :user
+
+  = f.actions do
+    = f.action :submit, :as => :input
