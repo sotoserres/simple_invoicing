@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     end
   end
   #-- End of Admin
-
+  get 'creatives/index'
   get 'contact' => 'home#contact'
   post 'contact' => 'home#contact'
   get 'recommend' => 'home#recommend'

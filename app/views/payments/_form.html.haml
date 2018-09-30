@@ -1,13 +1,13 @@
 = semantic_form_for @payment do |f|
   = f.inputs do
 
-    = f.input :amount
+    = f.input :amount, label: 'Ποσό', input_html: { autofocus: true }
 
-    = f.input :date
+    = f.input :date, label: 'Ημερομηνία'
 
-    = f.input :user_id
+    = f.input :user_id, label: 'Συναλλασόμενος'
 
-    = f.input :description
+    = f.input :description, label: 'Περιγραφή'
 
 
   = f.actions do

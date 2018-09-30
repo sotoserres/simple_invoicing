@@ -3,15 +3,15 @@
 %table
   %thead
     %tr
-      %th Category
-      %th Subcategory
-      %th Name
-      %th Description
-      %th Stock
-      %th Code
+      %th Κατηγορία
+      %th Υποκατηγορία
+      %th Ονομασία
+      %th Περιγραφή
+      %th Απόθεμα
+      %th Κωδικός
       %th Barcode
-      %th Price
-      %th Supplier
+      %th Τιμή
+      %th Προμηθευτής
       %th
       %th
       %th
@@ -28,10 +28,10 @@
         %td= item.barcode
         %td= item.price
         %td= item.supplier
-        %td= link_to 'Show', item
-        %td= link_to 'Edit', edit_item_path(item)
-        %td= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Πληροφορίες', item
+        %td= link_to 'Επεξεργασία', edit_item_path(item)
+        %td= link_to 'Διαγραφή', item, method: :delete, data: { confirm: 'Είστε Σίγουρος;' }
 
 %br
 
-= link_to 'New Item', new_item_path
+= link_to 'Νέο Προϊόν', new_item_path

@@ -1,14 +1,14 @@
 = semantic_form_for @item do |f|
   = f.inputs do
-    = f.input :category
-    = f.input :subcategory
-    = f.input :name
-    = f.input :description
-    = f.input :stock
-    = f.input :code
-    = f.input :barcode
-    = f.input :price
-    = f.input :supplier
+    = f.input :category, label: 'Κατηγορία', input_html: { autofocus: true }
+    = f.input :subcategory, label: 'Υποκατηγορία'
+    = f.input :name, label: 'Ονομασία'
+    = f.input :description, label: 'Περιγραφή'
+    = f.input :stock, label: 'Απόθεμα'
+    = f.input :code, label: 'Κωδικός'
+    = f.input :barcode, label: 'Barcode'
+    = f.input :price, label: 'Τιμή'
+    = f.input :supplier, label: 'Προμηθευτής'
 
   = f.actions do
     = f.action :submit, :as => :input

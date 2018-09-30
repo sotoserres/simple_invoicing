@@ -1,33 +1,33 @@
 %p#notice= notice
 
 %p
-  %b Category:
+  %b Κατηγορία:
   = @item.category
 %p
-  %b Subcategory:
+  %b Υποκατηγορία:
   = @item.subcategory
 %p
-  %b Name:
+  %b Ονομασία:
   = @item.name
 %p
-  %b Description:
+  %b Περιγραφή:
   = @item.description
 %p
-  %b Stock:
+  %b Απόθεμα:
   = @item.stock
 %p
-  %b Code:
+  %b Κωδικός:
   = @item.code
 %p
   %b Barcode:
   = @item.barcode
 %p
-  %b Price:
+  %b Τιμή:
   = @item.price
 %p
-  %b Supplier:
+  %b Προμηθευτής:
   = @item.supplier
 
-= link_to 'Edit', edit_item_path(@item)
+= link_to 'Επεξεργασία', edit_item_path(@item)
 \|
-= link_to 'Back', items_path
+= link_to 'Πίσω', items_path

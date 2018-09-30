@@ -11,7 +11,7 @@ gem 'mysql2'
 # Use haml as templating language
 gem 'haml-rails'
 gem 'font-awesome-sass', '~> 5.3.1'
-
+gem 'font-awesome-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
@@ -43,6 +43,7 @@ gem 'jquery-datatables-rails'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+
 
 gem 'puma'
 gem 'activerecord-native_db_types_override'

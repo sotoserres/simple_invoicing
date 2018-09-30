@@ -1,12 +1,12 @@
-%h1 Listing payments
+%h1 Λίστα Πληρωμών
 
 %table
   %thead
     %tr
-      %th Amount
-      %th Date
-      %th User
-      %th Description
+      %th Ποσό
+      %th Ημερομηνία
+      %th Συναλλασόμενος
+      %th Περιγραφή
       %th
       %th
       %th
@@ -18,10 +18,10 @@
         %td= payment.date
         %td= payment.user_id
         %td= payment.description
-        %td= link_to 'Show', payment
-        %td= link_to 'Edit', edit_payment_path(payment)
-        %td= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Πληροφορίες', payment
+        %td= link_to 'Επεξεργασία', edit_payment_path(payment)
+        %td= link_to 'Διαγραφή', payment, method: :delete, data: { confirm: 'Είστε σίγουρος;' }
 
 %br
 
-= link_to 'New Payment', new_payment_path
+= link_to 'Νέα Πληρωμή', new_payment_path

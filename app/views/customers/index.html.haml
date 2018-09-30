@@ -41,8 +41,7 @@
         %td= customer.address
         %td= customer.city
         %td= customer.activity
-        %td= button_to 'Πληροφορίες', customer, class: 'btn btn-primary'
-        %td= button_to 'Επεξεργασία', edit_customer_path(customer), class: 'btn btn-warning'
-        %td= button_to 'Διαγραφή', customer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
-
+        %td= link_to 'Πληροφορίες', customer, class: 'btn btn-primary'
+        %td= link_to 'Επεξεργασία', edit_customer_path(customer), class: 'btn btn-warning'
+        %td= link_to 'Διαγραφή', customer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
 %br
