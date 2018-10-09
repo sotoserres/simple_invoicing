@@ -4,7 +4,11 @@ class MachineriesController < ApplicationController
   # GET /machineries
   # GET /machineries.json
   def index
-    @machineries = Machinery.all
+    if params[:user_id]
+      @machineries = Machinery.where(:user_id => params[:user_id])
+    else
+      @machineries = Machinery.all
+    end
   end
 
   # GET /machineries/1

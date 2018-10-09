@@ -1,5 +1,5 @@
 body {
-  padding-top: 60px; // navbar-fixed-top height
+  padding-top: 50px; // navbar-fixed-top height
   font-family: 'Roboto';
 }
 
@@ -16,7 +16,7 @@ body {
 }
 
 .navbar-default {
-  background: #8e0686;
+  background: #2e3966;
   box-shadow: 0px 0.5px 2px #cecece;
   font-size: 16px;
 }
@@ -33,25 +33,25 @@ body {
 .navbar-default .navbar-brand:focus {
   text-decoration: none;
   color: #161f3e;
-  -webkit-transition: all .8s ease;
-  transition: all .8s ease;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
   font-weight: bold;
 }
 
 .navbar-default .navbar-nav > li > a.highlight:hover,
 .navbar-default .navbar-nav > li > a.highlight:focus {
   text-decoration: none;
-  color: #282c52 !important;
+  color: #282c52;
   font-weight: bold !important;
-  -webkit-transition: all .8s ease;
-  transition: all .8s ease;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 .navbar-default .navbar-nav > li > a {
   color: #ffffff;
   // outline: 0;
-  // -webkit-transition: all .8s ease;
-  // transition: all .8s ease;
+  // -webkit-transition: all .5s ease;
+  // transition: all .5s ease;
 }
 
 li > a.highlight{
@@ -66,7 +66,7 @@ li > a.highlight{
 }
 
 #footer {
-  color: #000 !important;
+  color: #25244;
 }
 
 .navbar-bottom {

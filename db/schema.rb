@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_27_080848) do
+ActiveRecord::Schema.define(version: 2018_10_09_134314) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "surname"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2018_09_27_080848) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "cat"
+    t.string "afm"
   end
 
   create_table "invoices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -52,7 +53,7 @@ ActiveRecord::Schema.define(version: 2018_09_27_080848) do
     t.string "code"
     t.string "barcode"
     t.float "price"
-    t.integer "supplier"
+    t.integer "supplier_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -86,8 +87,8 @@ ActiveRecord::Schema.define(version: 2018_09_27_080848) do
   end
 
   create_table "tractors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "Name"
-    t.string "Plates"
+    t.string "name"
+    t.string "plates"
     t.datetime "dob"
     t.datetime "lastservice"
     t.datetime "filterhours"

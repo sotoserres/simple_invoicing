@@ -1,3 +1,4 @@
 class Item < ActiveRecord::Base
-  belongs_to :customer
+  belongs_to :supplier,
+  class_name: 'Customer'
 end

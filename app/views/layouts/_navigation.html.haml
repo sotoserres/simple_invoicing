@@ -1,14 +1,15 @@
 #regular-navbar.navbar.navbar-default.navbar-fixed-top{ role: 'navigation' }
   .navbar-header.fullwidth
-    %button.navbar-toggle{ 'type' => 'button', 'data-toggle' => 'collapse', 'data-target' => '.navbar-collapse' }
-      %span.sr-only
-        Toggle navigation
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-
-    = link_to "Pappas Web", "http://www.p-pappas.gr", :target => "_blank", class: 'navbar-brand'
-
+    = link_to "Αρχική", "/", :target => "_self", class: 'navbar-brand'
+    -# %button#sidebarCollapse.btn.btn-info{:type => "button"}
+    -#   %i.fa.fa-align-justify
+    -# - if user_signed_in?
+    -#   = link_to "Πελάτες", customers_path, class: 'navbar-brand'
+    -#   = link_to "Προμηθευτές", customers_path, class: 'navbar-brand'
+    -#   = link_to "Αποθήκη", items_path, class: 'navbar-brand'
+    -#   = link_to "Τρακτέρ", tractors_path, class: 'navbar-brand'
+    -#   = link_to "Παρελκόμενα", machineries_path, class: 'navbar-brand'
+    -#   = link_to "Πληρωμές", payments_path, class: 'navbar-brand'
     .navbar-collapse.collapse
       - if user_signed_in?
         %ul.nav.navbar-nav

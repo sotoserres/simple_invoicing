@@ -11,7 +11,7 @@ gem 'mysql2'
 # Use haml as templating language
 gem 'haml-rails'
 gem 'font-awesome-sass', '~> 5.3.1'
-gem 'font-awesome-rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 

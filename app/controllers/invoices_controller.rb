@@ -4,7 +4,11 @@ class InvoicesController < ApplicationController
   # GET /invoices
   # GET /invoices.json
   def index
-    @invoices = Invoice.all
+    if params[:user_id]
+      @invoices = Invoice.where(:user_id => params[:user_id])
+    else
+      @invoices = Invoice.all
+    end
   end
 
   # GET /invoices/1

@@ -4,7 +4,11 @@ class TractorsController < ApplicationController
   # GET /tractors
   # GET /tractors.json
   def index
-    @tractors = Tractor.all
+    if params[:user_id]
+      @tractors = Tractor.where(:user_id => params[:user_id])
+    else
+      @tractors = Tractor.all
+    end
   end
 
   # GET /tractors/1

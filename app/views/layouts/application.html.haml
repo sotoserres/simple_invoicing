@@ -1,38 +1,37 @@
 !!!
+%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"}
+%script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
 %html
   %head
     %title
-      = content_for?(:title) ? yield(:title) : 'Pappas Database'
+      = content_for?(:title) ? yield(:title) : 'Pappas DΒ'
 
     %meta{ name: 'description', |
            content: @meta_description ? @meta_description : 'Rails App with bootstrap, user authentication and authorization' }
     %meta{ charset: 'UTF-8' }
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
-    = favicon_link_tag '/favicon.ico'
+    = favicon_link_tag '/favicon.png'
     = stylesheet_link_tag 'application', :media => "all"
 
     = csrf_meta_tags
 
   %body
-    .hidden-print
-      = render partial: 'layouts/navigation'
-    .container-fluid
-      .row
-        .col-xs-12.col-sm-12.col-md-12
-          - if current_user && current_user.is_admin
-            .admin-notifications
-
-          #messages.hidden-print.unobtrusive-flash-container
-            = render partial: 'layouts/messages'
-          .main#content.full-body
+    .wrapper
+      .hidden-print
+        = render partial: 'layouts/navigation'
+        = render partial: 'layouts/sidebar'
+      #messages.hidden-print.unobtrusive-flash-container
+        = render partial: 'layouts/messages'
+      #content
+        .nav.navbar.navbar-expand-lg.navbar-light.bg-light
+          .container-fluid
             = yield
-
-      /* Footer */
-    %footer#footer
-      .container
-        .row.hidden-print
-          .col-md-12
-            = render partial: 'layouts/footer'
+        /* Footer */
+        %footer#footer
+          .container
+            .row.hidden-print
+              .col-md-12
+                = render partial: 'layouts/footer'
 
 :javascript
 

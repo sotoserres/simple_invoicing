@@ -1,8 +1,14 @@
-%h1 Listing tractors
-
-%table
+.page-header
+  %h1
+    Τρακτέρ
+    %div
+      = link_to new_tractor_path, class: 'btn btn-success' do
+        .fa.fa-plus
+        Προσθήκη Τρακτέρ
+%table.table.table-bordered
   %thead
     %tr
+      %th Α/Α
       %th Ονομασία
       %th Πινακίδες
       %th Πρώτη Άδεια
@@ -12,8 +18,10 @@
       %th Ώρες Εργασίας
 
   %tbody
-    - @tractors.each do |tractor|
+    - @tractors.each_with_index do |tractor, index|
       %tr
+        %td
+          =index+1
         %td= tractor.name
         %td= tractor.plates
         %td= tractor.dob
@@ -21,10 +29,13 @@
         %td= tractor.filterhours
         %td= tractor.oilhours
         %td= tractor.twh
-        %td= link_to 'Στοιχεία', tractor
-        %td= link_to 'Επεξεργασία', edit_tractor_path(tractor)
-        %td= link_to 'Διαγραφή', tractor, method: :delete, data: { confirm: 'Είστε Σίγουρος?' }
-
+        %td
+          = link_to tractor, class: 'btn btn-primary' do
+            .fa.fa-info-circle
+        %td
+          = link_to edit_tractor_path(tractor), class: 'btn btn-warning' do
+            .fa.fa-edit
+        %td
+          = link_to tractors_path(@tractor), method: :delete, remote: true, data: { confirm: 'Είστε σίγουρος;' }, class: 'btn btn-danger' do
+            .fa.fa-trash
 %br
-
-= link_to 'Νέο Όχημα', new_tractor_path

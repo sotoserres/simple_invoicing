@@ -1,0 +1,53 @@
+.wrapper{style:'height:100%;overflow-x:hidden'}
+  / Sidebar
+  %nav#sidebar
+    .sidebar-header{style:'position:fixed'}
+      %button#sidebarCollapse.btn.btn-info{:type => "button"}
+        %i.fa.fa-align-justify
+    %ul.list-unstyled.components{style:'position:fixed;margin-top:60px !important'}
+      %li
+        %a{:href => customers_path}
+          %i.fa.fa-user
+          Πελατολόγιο
+      %li
+        %a{:href => customers_path(:cat => "0")}
+          %i.fa.fa-user-circle
+          Πελάτες
+      %li
+        %a{:href => customers_path(:cat => "1")}
+          %i.fa.fa-user-circle-o
+          Προμηθευτές
+      %li
+        %a{:href => items_path}
+          %i.fa.fa-building
+          Αποθήκη
+      %li
+        %a{:href => tractors_path}
+          %i.fa.fa-car
+          Τρακτέρ
+      %li
+        %a{:href => machineries_path}
+          %i.fa.fa-gear
+          Παρελκόμενα
+      %li
+        %a{:href => payments_path}
+          %i.fa.fa-bank
+          Πληρωμές
+      %li
+        %a{:href => invoices_path}
+          %i.fa.fa-file-o
+          Τιμολόγια
+
+/ jQuery CDN - Slim version (=without AJAX)
+%script{:crossorigin => "anonymous", :integrity => "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo", :src => "https://code.jquery.com/jquery-3.3.1.slim.min.js"}
+/ Popper.JS
+%script{:crossorigin => "anonymous", :integrity => "sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ", :src => "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"}
+/ Bootstrap JS
+%script{:crossorigin => "anonymous", :integrity => "sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm", :src => "https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"}
+
+:javascript
+  $(document).ready(function () {
+      $('#sidebarCollapse').on('click', function () {
+          $('#sidebar').toggleClass('active');
+      });
+  });

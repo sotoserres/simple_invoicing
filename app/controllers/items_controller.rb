@@ -4,7 +4,11 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    if params[:supplier_id]
+      @items = Item.where(:supplier_id => params[:supplier_id])
+    else
+      @items = Item.all
+    end
   end
 
   # GET /items/1

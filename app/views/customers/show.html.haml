@@ -6,33 +6,105 @@
 = link_to customers_path, class: 'btn btn-primary' do
   .fa.fa-plus
   Πίσω
-%p
-  %b Επίθετο:
-  = @customer.surname
-%p
-  %b Όνομα:
-  = @customer.name
-%p
-  %b Πατρώνυμο:
-  = @customer.fathername
-%p
-  %b Τηλέφωνο:
-  = @customer.telephone
-%p
-  %b Κινητό:
-  = @customer.cellphone
-%p
-  %b Ημερ. Γεν.:
-  = @customer.dob
-%p
-  %b Email:
-  = @customer.email
-%p
-  %b Πόλη:
-  = @customer.city
-%p
-  %b Διέυθυνση:
-  = @customer.address
-%p
-  %b Δραστηριότητα:
-  = @customer.activity
+%br
+%br
+.container.bootstrap.snippet
+  .row
+    .col-sm-10
+      %h3
+        =@customer.name
+        (
+        =@customer.fathername
+        )
+        =@customer.surname
+    -# .col-sm-2
+    -#   %a.pull-right{:href => "/users"}
+    -#     %img.img-circle.img-responsive{:src => "http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100", :title => "profile image"}/
+  .row
+    .col-sm-3
+      / left col
+      -# .text-center
+      -#   %img.avatar.img-circle.img-thumbnail{:alt => "avatar", :src => "http://ssl.gstatic.com/accounts/ui/avatar_2x.png"}/
+      -#   %h6 Upload a different photo...
+      -#   %input.text-center.center-block.file-upload{:type => "file"}/
+      %br/
+      -# .panel.panel-default
+      -#   .panel-heading
+      -#     Ιστοσελίδα
+      -#     %i.fa.fa-link.fa-1x
+      -#   .panel-body
+      -#     %a{:href => "http://bootnipets.com"} bootnipets.com
+      %ul.list-group
+        %li.list-group-item.text-muted
+          Συνολικά
+          %i.fa.fa-dashboard.fa-1x
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Τιμολόγια
+          =link_to Invoice.where(user_id: @customer.id).count, invoices_path(:user_id => @customer)
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Τρακτέρ
+          =link_to Tractor.where(user_id: @customer.id).count, tractors_path(:user_id => @customer)
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Παρελκόμενα
+          =link_to Machinery.where(user_id: @customer.id).count, machineries_path(:user_id => @customer)
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Πληρωμές
+          =link_to Payment.where(user_id: @customer.id).count, payments_path(:user_id => @customer)
+        - if @customer.cat=="provider"
+          %li.list-group-item.text-right
+            %span.pull-left
+              %strong Προϊόντα
+            =link_to Item.where(supplier_id: @customer.id).count, items_path(:supplier_id => @customer)
+      .panel.panel-default
+        .panel-heading Social Media
+        .panel-body
+          %i.fa.fa-facebook.fa-2x
+          %i.fa.fa-github.fa-2x
+          %i.fa.fa-twitter.fa-2x
+          %i.fa.fa-pinterest.fa-2x
+          %i.fa.fa-google-plus.fa-2x
+    / /col-3
+
+    .col-sm-9
+      %br
+
+      %ul#pills-tab.nav.nav-pills.list-group-item{:role => "tablist"}
+        %li.nav-item
+          %a#pills-home-tab.nav-link.active{"aria-controls" => "pills-info", "aria-selected" => "true", "data-toggle" => "pill", :href => "#pills-info", :role => "tab"} Στοιχεία
+        %li.nav-item
+          %a#pills-profile-tab.nav-link{"aria-controls" => "pills-tractor", "aria-selected" => "false", "data-toggle" => "pill", :href => "#pills-tractor", :role => "tab"} Τρακτέρ
+        %li.nav-item
+          %a#pills-contact-tab.nav-link{"aria-controls" => "pills-payment", "aria-selected" => "false", "data-toggle" => "pill", :href => "#pills-payment", :role => "tab"} Πληρωμές
+      #pills-tabContent.tab-content.list-group-item
+        #pills-info.tab-pane.fade.show.active{"aria-labelledby" => "pills-info-tab", :role => "tabpanel"}
+          %br
+          %table.table.table-bordered
+            %thead
+              %br
+                .col-md-2
+                  ΑΦΜ:
+                .col-md-3
+                  =@customer.afm
+              %br
+                .col-md-2
+                  Ημ. Γεν.:
+                .col-md-3
+                  =@customer.dob
+              %br
+                .col-md-2
+                  Τηλέφωνο:
+                .col-md-3
+                  =@customer.telephone
+              %br
+                .col-md-2
+                  Κινητό:
+                .col-md-3
+                  =@customer.cellphone
+        #pills-tractor.tab-pane.fade{"aria-labelledby" => "pills-tractor-tab", :role => "tabpanel"}
+          %br
+          =customer.items.count
+        #pills-payment.tab-pane.fade{"aria-labelledby" => "pills-payment-tab", :role => "tabpanel"} ...

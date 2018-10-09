@@ -3,4 +3,5 @@ class Customer < ActiveRecord::Base
   has_many :invoices
   has_many :tractors
   has_many :machineries
+  has_many :items
 end

@@ -1,29 +1,37 @@
-%h1 Listing machineries
-
-%table
+.page-header
+  %h1
+    Μηχανήματα
+    %div
+      = link_to new_machinery_path, class: 'btn btn-success' do
+        .fa.fa-plus
+        Προσθήκη Μηχανήματος
+%table.table.table-bordered
   %thead
     %tr
-      %th Name
-      %th Dob
-      %th Condition
-      %th Warranty
-      %th User
-      %th
-      %th
-      %th
+      %th Ονομασία
+      %th Ημ. Αγοράς
+      %th Κατάσταση
+      %th Εγγύηση
+      %th Ιδιοκτήτης
+      %th{ colspan: '3' } Ενέργειες
 
   %tbody
-    - @machineries.each do |machinery|
+    - @machineries.each_with_index do |machinery, index|
       %tr
+        %td
+          =index+1
         %td= machinery.name
         %td= machinery.dob
         %td= machinery.condition
         %td= machinery.warranty
-        %td= machinery.user
-        %td= link_to 'Show', machinery
-        %td= link_to 'Edit', edit_machinery_path(machinery)
-        %td= link_to 'Destroy', machinery, method: :delete, data: { confirm: 'Are you sure?' }
-
+        %td= machinery.user_id
+        %td
+          = link_to item, class: 'btn btn-primary' do
+            .fa.fa-info-circle
+        %td
+          = link_to edit_item_path(item), class: 'btn btn-warning' do
+            .fa.fa-edit
+        %td
+          = link_to items_path(@item), method: :delete, remote: true, data: { confirm: 'Είστε σίγουρος;' }, class: 'btn btn-danger' do
+            .fa.fa-trash
 %br
-
-= link_to 'New Machinery', new_machinery_path

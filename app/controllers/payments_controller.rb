@@ -4,7 +4,11 @@ class PaymentsController < ApplicationController
   # GET /payments
   # GET /payments.json
   def index
-    @payments = Payment.all
+    if params[:user_id]
+      @payments = Payment.where(:user_id => params[:user_id])
+    else
+      @payments = Payment.all
+    end
   end
 
   # GET /payments/1
